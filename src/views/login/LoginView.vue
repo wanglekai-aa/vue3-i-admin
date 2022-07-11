@@ -1,6 +1,11 @@
 <template>
   <div class="login-container">
-    <el-form class="login-form" :model="loginForm" :rules="loginRules">
+    <el-form
+      ref="loginFormRef"
+      class="login-form"
+      :model="loginForm"
+      :rules="loginRules"
+    >
       <div class="title-container">
         <h3 class="title">用户登录</h3>
       </div>
@@ -36,7 +41,11 @@
         </span>
       </el-form-item>
 
-      <el-button type="primary" style="width: 100%; margin-bottom: 30px"
+      <el-button
+        type="primary"
+        style="width: 100%; margin-bottom: 30px"
+        @click="handleLogin"
+        :loading="loading"
         >登录</el-button
       >
     </el-form>
@@ -44,6 +53,7 @@
 </template>
 
 <script setup>
+import { useStore } from 'vuex'
 import { ref } from 'vue'
 import { validatePassword } from './rules'
 const loginForm = ref({
@@ -72,6 +82,29 @@ const handleChangePwdType = () => {
   } else {
     passwordType.value = 'password'
   }
+}
+
+const store = useStore()
+const loginFormRef = ref(null)
+const loading = ref(false)
+// 登录处理
+const handleLogin = () => {
+  // 表单验证
+  loginFormRef.value.validate((valid) => {
+    if (!valid) return
+    loading.value = true
+    store
+      .dispatch('User/login', loginForm.value)
+      .then((res) => {
+        console.log('login success info: ', res)
+      })
+      .catch((err) => {
+        console.log('login Error: ', err)
+      })
+      .finally(() => {
+        loading.value = false
+      })
+  })
 }
 </script>
 
