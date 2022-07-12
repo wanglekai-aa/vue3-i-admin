@@ -1,17 +1,21 @@
 // 处理所有和 用户相关 的内容
 import { TOKEN } from '@/constant'
 import { setItem, getItem } from '@/utils/storage'
-import { login } from '@/api/sys'
+import { login, getUserInfo } from '@/api/sys'
 import md5 from 'md5'
 export default {
   namespaced: true,
   state: () => ({
-    token: getItem(TOKEN) || ''
+    token: getItem(TOKEN) || '',
+    userInfo: {}
   }),
   mutations: {
     setToken(state, token) {
       state.token = token
       setItem(TOKEN, token)
+    },
+    setUserInfo(state, userInfo) {
+      state.userInfo = userInfo
     }
   },
   actions: {
@@ -30,6 +34,11 @@ export default {
             reject(err)
           })
       })
+    },
+    async getUserInfo() {
+      const res = await getUserInfo()
+      this.commit('User/setUserInfo', res)
+      return res
     }
   }
 }
