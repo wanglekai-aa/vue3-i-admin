@@ -4,6 +4,10 @@ import { createRouter, createWebHashHistory } from 'vue-router'
  */
 const publicRoutes = [
   {
+    path: '/',
+    component: () => import('@/views/layout/layoutView.vue')
+  },
+  {
     path: '/login',
     component: () => import('@/views/login/LoginView.vue')
   }

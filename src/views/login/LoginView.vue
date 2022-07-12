@@ -56,6 +56,8 @@
 import { useStore } from 'vuex'
 import { ref } from 'vue'
 import { validatePassword } from './rules'
+import router from '@/router'
+
 const loginForm = ref({
   username: 'super-admin',
   password: '123456'
@@ -96,7 +98,8 @@ const handleLogin = () => {
     store
       .dispatch('User/login', loginForm.value)
       .then((res) => {
-        console.log('login success info: ', res)
+        // console.log('login success info: ', res)
+        router.push('/')
       })
       .catch((err) => {
         console.log('login Error: ', err)
