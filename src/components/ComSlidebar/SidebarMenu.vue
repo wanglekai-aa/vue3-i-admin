@@ -23,3 +23,19 @@
     </el-menu-item>
   </el-menu>
 </template>
+
+<script setup>
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { filterRouters, generateMenus } from '@/utils/route'
+
+const router = useRouter()
+
+// router.getRoutes() 获取所有 路由记录 的完整列表
+const routes = computed(() => {
+  const fRouters = filterRouters(router.getRoutes())
+  return generateMenus(fRouters)
+})
+
+console.log(routes.value)
+</script>
