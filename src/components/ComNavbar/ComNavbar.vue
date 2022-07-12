@@ -9,7 +9,7 @@
           <el-avatar
             shape="square"
             :size="40"
-            :src="$store.getters.userInfo.avatar"
+            :src="require('@/assets/logo.jpg')"
           ></el-avatar>
           <i class="el-icon-s-tools"></i>
         </div>
