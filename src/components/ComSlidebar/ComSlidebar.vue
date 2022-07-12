@@ -1,7 +1,11 @@
 <template>
   <div class="sidebar-container">
     <div class="logo-container">
-      <el-avatar size="44" shape="square" :src="require('@/assets/logo.jpg')" />
+      <el-avatar
+        :size="logoHeight"
+        shape="square"
+        :src="require('@/assets/logo.jpg')"
+      />
       <h1 class="logo-title" v-if="$store.getters.sidebarOpened">I-Admin</h1>
     </div>
 
@@ -14,11 +18,13 @@
 <script setup>
 import SidebarMenu from './SidebarMenu.vue'
 import {} from 'vue'
+const logoHeight = 44
 </script>
 
 <style lang="scss" scoped>
 .logo-container {
-  height: 44px;
+  // height: 44px;
+  height: v-bind(logoHeight) + 'px';
   padding: 10px 0 22px 0;
   display: flex;
   align-items: center;
