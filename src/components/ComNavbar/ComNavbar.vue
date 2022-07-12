@@ -2,6 +2,8 @@
   <div class="navbar">
     <ham-burger class="hamburger-container" />
 
+    <bread-crumb class="breadcrumb-container" />
+
     <div class="right-menu">
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -33,6 +35,8 @@
 
 <script setup>
 import HamBurger from '@/components/HamBurger/HamBurger.vue'
+import BreadCrumb from '@/components/BreadCrumb/BreadCrumb.vue'
+
 import { ElLoading } from 'element-plus'
 
 import { useStore } from 'vuex'
@@ -72,6 +76,9 @@ const handleLogout = () => {
     &:hover {
       background: rgba(0, 0, 0, 0.1);
     }
+  }
+  .breadcrumb-container {
+    float: left;
   }
 
   .right-menu {

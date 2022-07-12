@@ -27,7 +27,6 @@ import ComSlidebar from '@/components/ComSlidebar/ComSlidebar.vue'
 import AppMain from '@/components/AppMain/AppMain.vue'
 
 import variables from '@/styles/variables.module.scss'
-console.log(variables)
 </script>
 
 <style lang="scss" scoped>
