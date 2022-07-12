@@ -1,8 +1,10 @@
 // 处理所有和 用户相关 的内容
 import { TOKEN } from '@/constant'
-import { setItem, getItem } from '@/utils/storage'
+import { setItem, getItem, removeAllItem } from '@/utils/storage'
 import { login, getUserInfo } from '@/api/sys'
 import md5 from 'md5'
+import router from '@/router'
+
 export default {
   namespaced: true,
   state: () => ({
@@ -39,6 +41,12 @@ export default {
       const res = await getUserInfo()
       this.commit('User/setUserInfo', res)
       return res
+    },
+    logout() {
+      this.commit('User/setToken', '')
+      this.commit('User/setUserInfo', {})
+      removeAllItem()
+      router.push('/login')
     }
   }
 }

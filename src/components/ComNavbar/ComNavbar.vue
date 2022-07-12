@@ -19,7 +19,9 @@
             <a target="_blank" href="">
               <el-dropdown-item>课程主页</el-dropdown-item>
             </a>
-            <el-dropdown-item divided> 退出登录 </el-dropdown-item>
+            <el-dropdown-item divided @click="handleLogout">
+              退出登录
+            </el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -28,7 +30,25 @@
 </template>
 
 <script setup>
-import {} from 'vue'
+import { ElLoading } from 'element-plus'
+
+import { useStore } from 'vuex'
+const store = useStore()
+
+// const fullscreenLoading = ref(false)
+
+// 退出登录
+const handleLogout = () => {
+  const loading = ElLoading.service({
+    lock: true,
+    text: '稍等片刻～',
+    background: 'rgba(0, 0, 0, 0.7)'
+  })
+  setTimeout(() => {
+    store.dispatch('User/logout')
+    loading.close()
+  }, 1000)
+}
 </script>
 
 <style lang="scss" scoped>
