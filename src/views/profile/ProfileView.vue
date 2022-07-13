@@ -1,5 +1,7 @@
 <template>
-  <div class="">个人中心</div>
+  <div class="">
+    <h2>{{ $t('msg.test') }}</h2>
+  </div>
 </template>
 
 <script setup>

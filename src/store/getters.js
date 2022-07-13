@@ -6,7 +6,8 @@ const getters = {
   // 用户信息是否存在
   hasUserInfo: (state) => JSON.stringify(state.User.userInfo) !== '{}',
   cssVar: () => variables,
-  sidebarOpened: (state) => state.App.sidebarOpened
+  sidebarOpened: (state) => state.App.sidebarOpened,
+  language: (state) => state.App.language
 }
 
 export default getters
