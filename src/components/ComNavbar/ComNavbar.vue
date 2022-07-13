@@ -7,6 +7,8 @@
     <bread-crumb class="breadcrumb-container" />
 
     <div class="right-menu">
+      <!-- 搜索框 -->
+      <header-search class="right-menu-item hover-effect"></header-search>
       <!-- 全屏/退出全屏 -->
       <screen-full class="right-menu-item hover-effect" />
       <!-- 换肤按钮 -->
@@ -47,6 +49,7 @@ import BreadCrumb from '@/components/BreadCrumb/BreadCrumb.vue'
 import LangSelect from '@/components/LangSelect/LangSelect.vue'
 import ThemePicker from '@/components/ThemeSelect/ThemeSelect.vue'
 import ScreenFull from '@/components/ScreenFull/ScreenFull.vue'
+import HeaderSearch from '@/components/HeaderSearch/HeaderSearch.vue'
 
 import { ElLoading } from 'element-plus'
 
