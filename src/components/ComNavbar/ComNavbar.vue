@@ -1,11 +1,17 @@
 <template>
   <div class="navbar">
+    <!-- 侧边栏收缩按钮 -->
     <ham-burger class="hamburger-container" />
 
+    <!-- 面包屑 -->
     <bread-crumb class="breadcrumb-container" />
 
     <div class="right-menu">
+      <!-- 全屏/退出全屏 -->
+      <screen-full class="right-menu-item hover-effect" />
+      <!-- 换肤按钮 -->
       <theme-picker class="right-menu-item hover-effect"></theme-picker>
+      <!-- 语言切换按钮 -->
       <lang-select class="right-menu-item hover-effect" />
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -40,6 +46,7 @@ import HamBurger from '@/components/HamBurger/HamBurger.vue'
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb.vue'
 import LangSelect from '@/components/LangSelect/LangSelect.vue'
 import ThemePicker from '@/components/ThemeSelect/ThemeSelect.vue'
+import ScreenFull from '@/components/ScreenFull/ScreenFull.vue'
 
 import { ElLoading } from 'element-plus'
 
