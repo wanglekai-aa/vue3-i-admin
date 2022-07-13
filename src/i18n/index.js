@@ -1,20 +1,27 @@
-import { LANG } from '@/constant'
-import { getItem } from '@/utils/storage'
 import { createI18n } from 'vue-i18n'
+import mZhLocale from './lang/zh'
+import mEnLocale from './lang/en'
+import store from '@/store'
+/**
+ * 返回当前 lang
+ */
+function getLanguage() {
+  return store && store.getters && store.getters.language
+}
 
 const messages = {
   zh: {
     msg: {
-      test: '你好世界'
+      ...mZhLocale
     }
   },
   en: {
     msg: {
-      test: 'hello world'
+      ...mEnLocale
     }
   }
 }
-const locale = getItem(LANG) || 'zh'
+const locale = getLanguage()
 
 const i18n = createI18n({
   // 使用 Composition API 模式，则需要将其设置为false

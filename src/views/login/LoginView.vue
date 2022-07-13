@@ -7,7 +7,8 @@
       :rules="loginRules"
     >
       <div class="title-container">
-        <h3 class="title">用户登录</h3>
+        <h3 class="title">{{ $t('msg.login.title') }}</h3>
+        <lang-select class="lang-select" />
       </div>
 
       <el-form-item prop="username">
@@ -46,17 +47,21 @@
         style="width: 100%; margin-bottom: 30px"
         @click="handleLogin"
         :loading="loading"
-        >登录</el-button
+        >{{ $t('msg.login.loginBtn') }}</el-button
       >
     </el-form>
   </div>
 </template>
 
 <script setup>
+import LangSelect from '@/components/LangSelect/LangSelect.vue'
 import { useStore } from 'vuex'
 import { ref } from 'vue'
 import { validatePassword } from './rules'
 import router from '@/router'
+import { useI18n } from 'vue-i18n'
+
+const i18n = useI18n()
 
 const loginForm = ref({
   username: 'super-admin',
@@ -67,7 +72,7 @@ const loginRules = ref({
   username: {
     required: true,
     trigger: 'blur',
-    message: '请填写用户名'
+    message: i18n.t('msg.login.usernameRule')
   },
   password: {
     required: true,
@@ -122,6 +127,14 @@ $cursor: #fff;
   width: 100%;
   background-color: $bg;
   overflow: hidden;
+
+  ::v-deep .lang-select {
+    position: absolute;
+    top: 8px;
+    right: 6px;
+    font-size: 26px;
+    background-color: white;
+  }
 
   .login-form {
     position: relative;
