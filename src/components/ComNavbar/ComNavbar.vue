@@ -5,6 +5,7 @@
     <bread-crumb class="breadcrumb-container" />
 
     <div class="right-menu">
+      <theme-picker class="right-menu-item hover-effect"></theme-picker>
       <lang-select class="right-menu-item hover-effect" />
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -38,6 +39,8 @@
 import HamBurger from '@/components/HamBurger/HamBurger.vue'
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb.vue'
 import LangSelect from '@/components/LangSelect/LangSelect.vue'
+import ThemePicker from '@/components/ThemeSelect/ThemeSelect.vue'
+
 import { ElLoading } from 'element-plus'
 
 import { useStore } from 'vuex'
