@@ -5,6 +5,8 @@ import color from 'css-color-function'
 import rgbHex from 'rgb-hex'
 import formula from '@/constant/formula.json'
 import axios from 'axios'
+import { getItem, setItem } from './storage'
+import { STYLE_CONTENT } from '@/constant'
 
 /**
  * 写入新样式到 style
@@ -54,9 +56,16 @@ export const generateColors = (primary) => {
  * 获取当前 element-plus 的默认样式表
  */
 const getOriginalStyle = async () => {
-  const version = require('element-plus/package.json').version
-  const url = `https://unpkg.com/element-plus@${version}/dist/index.css`
-  const { data } = await axios(url)
+  let data = getItem(STYLE_CONTENT)
+
+  if (!data) {
+    const version = require('element-plus/package.json').version
+    const url = `https://unpkg.com/element-plus@${version}/dist/index.css`
+    const res = await axios(url)
+    data = res.data
+    setItem(STYLE_CONTENT, data)
+  }
+
   // 把获取到的数据筛选为原样式模板
   return getStyleTemplate(data)
 }

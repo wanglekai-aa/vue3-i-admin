@@ -8,7 +8,7 @@
     <com-slidebar
       id="guide-sidebar"
       class="sidebar-container"
-      :style="{ backgroundColor: variables.menuBg }"
+      :style="{ backgroundColor: $store.getters.cssVar.menuBg }"
     />
     <div class="main-container">
       <div class="fixed-header">
@@ -25,8 +25,6 @@
 import ComNavbar from '@/components/ComNavbar/ComNavbar.vue'
 import ComSlidebar from '@/components/ComSlidebar/ComSlidebar.vue'
 import AppMain from '@/components/AppMain/AppMain.vue'
-
-import variables from '@/styles/variables.module.scss'
 </script>
 
 <style lang="scss" scoped>

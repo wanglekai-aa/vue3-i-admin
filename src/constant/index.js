@@ -14,3 +14,6 @@ export const LANG = 'language'
 export const MAIN_COLOR = 'mainColor'
 // 默认色值
 export const DEFAULT_COLOR = '#409eff'
+
+// 样式内容
+export const STYLE_CONTENT = 'styleContent'
