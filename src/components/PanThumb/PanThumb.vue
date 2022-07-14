@@ -115,13 +115,14 @@ defineProps({
     position: absolute;
     transform-origin: 95% 40%;
     transition: all 0.3s ease-in-out;
+    border: 1px solid #ccc;
   }
 
-  .pan-item:hover .pan-thumb {
+  &:hover .pan-thumb {
     transform: rotate(-110deg);
   }
 
-  .pan-item:hover .pan-info p a {
+  &:hover .pan-info p a {
     opacity: 1;
     transform: translateX(0px) rotate(0deg);
   }
