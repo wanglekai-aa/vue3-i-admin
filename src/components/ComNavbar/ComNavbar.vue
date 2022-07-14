@@ -4,9 +4,12 @@
     <ham-burger class="hamburger-container" />
 
     <!-- 面包屑 -->
-    <bread-crumb class="breadcrumb-container" />
+    <bread-crumb class="breadcrumb-container" id="guide-breadcrumb" />
 
     <div class="right-menu">
+      <!-- 引导按钮 -->
+      <com-guide class="right-menu-item hover-effect" />
+
       <!-- 搜索框 -->
       <header-search class="right-menu-item hover-effect"></header-search>
       <!-- 全屏/退出全屏 -->
@@ -50,6 +53,7 @@ import LangSelect from '@/components/LangSelect/LangSelect.vue'
 import ThemePicker from '@/components/ThemeSelect/ThemeSelect.vue'
 import ScreenFull from '@/components/ScreenFull/ScreenFull.vue'
 import HeaderSearch from '@/components/HeaderSearch/HeaderSearch.vue'
+import ComGuide from '@/components/ComGuide/ComGuide.vue'
 
 import { ElLoading } from 'element-plus'
 
