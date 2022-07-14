@@ -34,6 +34,30 @@ export default {
     changeTagsView(state, { index, tag }) {
       state.tagsViewList[index] = tag
       setItem(TAGS_VIEW, state.tagsViewList)
+    },
+    /**
+     * 删除 tag
+     * @param {type: 'other'||'right'||'index', index: index} payload
+     */
+    removeTagsView(state, payload) {
+      if (payload.type === 'index') {
+        // 关闭指定 tag
+        state.tagsViewList.splice(payload.index, 1)
+      } else if (payload.type === 'other') {
+        // 移出其他 tags
+        state.tagsViewList.splice(
+          payload.index + 1,
+          state.tagsViewList.length - payload.index + 1
+        )
+        state.tagsViewList.splice(0, payload.index)
+      } else if (payload.type === 'right') {
+        // 移除右侧 tags
+        state.tagsViewList.splice(
+          payload.index + 1,
+          state.tagsViewList.length - payload.index + 1
+        )
+      }
+      setItem(TAGS_VIEW, state.tagsViewList)
     }
   },
   actions: {}
