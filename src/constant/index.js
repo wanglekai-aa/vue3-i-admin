@@ -17,3 +17,6 @@ export const DEFAULT_COLOR = '#409eff'
 
 // 样式内容
 export const STYLE_CONTENT = 'styleContent'
+
+// tags
+export const TAGS_VIEW = 'tagsView'

@@ -14,6 +14,9 @@
       <div class="fixed-header">
         <!-- 顶部的 navbar -->
         <com-navbar />
+
+        <!-- tags -->
+        <tags-view />
       </div>
       <!-- 内容区 -->
       <app-main />
@@ -25,6 +28,7 @@
 import ComNavbar from '@/components/ComNavbar/ComNavbar.vue'
 import ComSlidebar from '@/components/ComSlidebar/ComSlidebar.vue'
 import AppMain from '@/components/AppMain/AppMain.vue'
+import TagsView from '@/components/TagsView/TagsView.vue'
 </script>
 
 <style lang="scss" scoped>
