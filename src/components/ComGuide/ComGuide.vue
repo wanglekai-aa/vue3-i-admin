@@ -7,6 +7,7 @@
 </template>
 
 <script setup>
+import { watchSwitchLang } from '@/utils/i18n'
 import Driver from 'driver.js'
 import 'driver.js/dist/driver.min.css'
 import { onMounted } from 'vue'
@@ -17,6 +18,10 @@ const i18n = useI18n()
 
 let driver = null
 onMounted(() => {
+  initDriver()
+})
+
+const initDriver = () => {
   driver = new Driver({
     // 禁止点击蒙版关闭
     allowClose: false,
@@ -24,7 +29,9 @@ onMounted(() => {
     nextBtnText: i18n.t('msg.guide.next'),
     prevBtnText: i18n.t('msg.guide.prev')
   })
-})
+}
+
+watchSwitchLang(initDriver)
 
 const onClick = () => {
   driver.defineSteps(steps(i18n))
