@@ -5,7 +5,7 @@
         <el-button type="primary" @click="onImportExcelClick">
           {{ $t('msg.excel.importExcel') }}</el-button
         >
-        <el-button type="success">
+        <el-button type="success" @click="onToExcelClick">
           {{ $t('msg.excel.exportExcel') }}
         </el-button>
       </div>
@@ -74,11 +74,13 @@
       >
       </el-pagination>
     </el-card>
+    <export-to-excel v-model="exportToExcelVisible"></export-to-excel>
   </div>
 </template>
 
 <script setup>
 // import { ref, onActivated } from 'vue'
+import ExportToExcel from './components/Export2Excel.vue'
 import { ref } from 'vue'
 import { getUserManageList, deleteUser } from '@/api/user-manage'
 import { watchSwitchLang } from '@/utils/i18n'
@@ -128,6 +130,12 @@ const router = useRouter()
 // excel 导入点击事件
 const onImportExcelClick = () => {
   router.push('/user/import')
+}
+
+// excel 导出点击事件
+const exportToExcelVisible = ref(false)
+const onToExcelClick = () => {
+  exportToExcelVisible.value = true
 }
 
 // 删除按钮点击事件
