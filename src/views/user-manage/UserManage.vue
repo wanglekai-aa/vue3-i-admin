@@ -78,6 +78,7 @@
 </template>
 
 <script setup>
+// import { ref, onActivated } from 'vue'
 import { ref } from 'vue'
 import { getUserManageList } from '@/api/user-manage'
 import { watchSwitchLang } from '@/utils/i18n'
@@ -94,12 +95,15 @@ const getListData = async () => {
     page: page.value,
     size: size.value
   })
-  tableData.value = result.list
+  tableData.value = result.list.reverse()
   total.value = result.total
 }
 getListData()
 // 监听语言切换
 watchSwitchLang(getListData)
+
+//  处理导入用户后数据不重新加载的问题
+// onActivated(getListData)
 
 // 分页相关
 /**

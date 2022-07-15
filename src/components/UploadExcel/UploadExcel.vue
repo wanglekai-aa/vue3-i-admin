@@ -82,9 +82,7 @@ const upload = (rawFile) => {
   excelUploadInput.value.value = null
   // 未指定上传前的回调
   if (!props.beforeUpload) {
-    readerData(rawFile).then((res) => {
-      console.log(res)
-    })
+    readerData(rawFile)
     return
   }
 
