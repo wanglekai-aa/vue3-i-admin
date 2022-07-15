@@ -28,16 +28,10 @@ import ProjectCard from './components/ProjectCard.vue'
 import ProjectChapter from './components/ProjectChapter.vue'
 import ProjectFeature from './components/ProjectFeature.vue'
 import ProjectAuthor from './components/ProjectAuthor.vue'
-import { ref, defineProps } from 'vue'
+import { ref } from 'vue'
 import { feature } from '@/api/user'
 import { watchSwitchLang } from '@/utils/i18n'
 
-defineProps({
-  features: {
-    type: Array,
-    required: true
-  }
-})
 const activeName = ref('feature')
 
 const featureData = ref([])
