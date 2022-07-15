@@ -7,6 +7,7 @@ import router from './router'
 import store from './store'
 import installIcons from '@/icons'
 import installElementPlus from './plugins/element'
+import installDirective from '@/directives'
 import './permission'
 import '@/styles/index.scss'
 
@@ -14,5 +15,6 @@ const app = createApp(App)
 installElementPlus(app)
 installIcons(app)
 installFilter(app)
+installDirective(app)
 
 app.use(store).use(router).use(i18n).mount('#app')

@@ -15,6 +15,12 @@ export const getUserManageAllList = () => {
     url: '/user-manage/all-list'
   })
 }
+// 获取用户详情
+export const userDetail = (id) => {
+  return service({
+    url: `/user-manage/detail/${id}`
+  })
+}
 
 // 批量导入
 export const userBatchImport = (data) => {
