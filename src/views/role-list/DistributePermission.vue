@@ -9,6 +9,7 @@
       :data="permissionData"
       show-checkbox
       default-expand-all
+      check-strictly
       node-key="id"
       :props="defaultProps"
     />

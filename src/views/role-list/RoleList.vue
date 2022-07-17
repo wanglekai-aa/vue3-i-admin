@@ -15,6 +15,7 @@
           v-slot="{ row }"
         >
           <el-button
+            v-permission="['distributePermission']"
             type="primary"
             size="mini"
             @click="onDistributePermissionClick(row)"
