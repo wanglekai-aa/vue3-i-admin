@@ -19,6 +19,10 @@ export default {
       setItem(LANG, lang)
       state.language = lang
     },
+    // 初始化 tagsList
+    initTagsViewList(state) {
+      state.tagsViewList = []
+    },
     // 添加 tags
     addTagsViewList(state, tag) {
       const isFind = state.tagsViewList.find((item) => {
